@@ -32,7 +32,7 @@
                     </div>
                     <div class="A-statistic" id="statDex"><button class="stat-btn" id="dexBtn">Dexterity</button></div>
                 </div>
-                <div class="choosen">Choosen stat:<span id="choosenStat">Roll first</div>
+                <div class="choosen">Choosen stat:<span id="choosenStat">Strength</div>
             </div>
             <div class="dist-roll-cont"> <!--ditributing stats and rolling-->
                 <div class="dist">
@@ -170,7 +170,16 @@
         let rolledCopy = []
         let legkisebb = 0
         let indexkissebb = 0
+        let runAsk = false
+
         const rollButton = document.querySelectorAll("#rollButton")
+
+        const strBtn = document.getElementById("strBtn")
+        const chrBtn = document.getElementById("chrBtn")
+        const conBtn = document.getElementById("conBtn")
+        const wisBtn = document.getElementById("wisBtn")
+        const intBtn = document.getElementById("intBtn")
+        const dexBtn = document.getElementById("dexBtn")
 
         let currentStr = []
         let currentChr = []
@@ -178,7 +187,6 @@
         let currentWis = []
         let currentInt = []
         let currentDex = []
-        
         let actualStr = []
         let actualChr = []
         let actualCon = []
@@ -187,52 +195,72 @@
         let actualDex = []
         let currentCharStat =
             [
-                ["Strength", [],[]], //currentCharStat[0][0] == Strength ---- currentCharStat[0][1] == []
-                ["Charisma", [],[]],
-                ["Constitution",[],[]],
-                ["Wisdom", [],[]],
-                ["Intelligence", [],[]],
-                ["Dexterity", [],[]],
+                ["Strength", [], []], //currentCharStat[0][0] == Strength ---- currentCharStat[0][1] == []
+                ["Charisma", [], []],
+                ["Constituiton", [], []],
+                ["Wisdom", [], []],
+                ["Intelligence", [], []],
+                ["Dexterity", [], []],
             ]
 
         rollingStat.forEach(element => element.addEventListener("click", setActiveStat))
         rollButton.forEach(elem => elem.addEventListener("click", rollDice))
         function setActiveStat(event) {
-            activeStat.innerHTML = event.currentTarget.innerHTML
-            saveStat()
-        }
-        /*Rolling the 4 random numbers, pushing into array*/
-        function rollDice(event) {
-            rolled = []
-            rolledCopy = []
-            for (let i = 0; i < 4; i++) {
-                temp = Math.floor(Math.random() * 6) + parseInt(1)
-                rolled.push(temp)
-                rolledCopy.push(temp)
-            }
+            for (let i = 0; i < currentCharStat.length; i++) {
 
-            /*visually taking it out*/
-            for (let i = 0; i < rolled.length; i++) {
-                dice[i].innerHTML = rolled[i]
-                dice[i].style.backgroundColor = "rgba(126, 9, 9, 0.782"
-                dice[i].style.color = "black"
-
-
-            }
-            /*rendezni + legkissebb defniniálása*/
-            rolled.sort()
-            let kiszedett = rolled.splice(0, 1)
-
-            /*kiszedni a legkissebbet*/
-            for (let i = 0; i < rolledCopy.length; i++) {
-                //rolledCopy[i] === dice[i].innerHTML
-                if (dice[i].innerHTML == kiszedett) {
-                    dice[i].style.backgroundColor = "black"
-                    dice[i].style.color = "yellow"
+/*make it so that strenth cant be rerolled if it has been rolled once already*/
+                if (event.currentTarget.innerHTML === currentCharStat[i][0] && currentCharStat[i][1].length == 4) {
+                    console.log(currentCharStat[i][1].length + " " + currentCharStat[i][1])
+                    runAsk = true
                     break
                 }
+                else {
+                    console.log(currentCharStat[i][1].length)
+                    runAsk = false
+                    
+                }
+                activeStat.innerHTML = event.currentTarget.innerHTML
+                saveStat()
             }
-            saveStat()
+        }
+
+
+
+        /*Rolling the 4 random numbers, pushing into array*/
+        function rollDice() {
+            if (runAsk == false) {
+                rolled = []
+                rolledCopy = []
+                for (let i = 0; i < 4; i++) {
+                    temp = Math.floor(Math.random() * 6) + parseInt(1)
+                    rolled.push(temp)
+                    rolledCopy.push(temp)
+                }
+
+                /*visually taking it out*/
+                for (let i = 0; i < rolled.length; i++) {
+                    dice[i].innerHTML = rolled[i]
+                    dice[i].style.backgroundColor = "rgba(126, 9, 9, 0.782"
+                    dice[i].style.color = "black"
+
+
+                }
+                /*rendezni + legkissebb defniniálása*/
+                rolled.sort()
+                let kiszedett = rolled.splice(0, 1)
+
+                /*kiszedni a legkissebbet*/
+                for (let i = 0; i < rolledCopy.length; i++) {
+                    //rolledCopy[i] === dice[i].innerHTML
+                    if (dice[i].innerHTML == kiszedett) {
+                        dice[i].style.backgroundColor = "black"
+                        dice[i].style.color = "yellow"
+                        break
+                    }
+                }
+                saveStat()
+            }
+            else { console.log(activeStat + " is already rolled") }
         }
 
 
@@ -243,6 +271,8 @@
                 actualStr = rolled
                 currentCharStat[0][1] = currentStr
                 currentCharStat[0][2] = actualStr
+                // majd ra kell krani ha megvan az erteke strBtn.style.backgroundColor = "aliceblue"
+
             }
             else if (activeStat.innerHTML == "Charisma") {
                 currentChr = rolledCopy
@@ -275,22 +305,22 @@
                 currentCharStat[5][2] = actualDex
             }
         }
-
-        function backupStat(){
+        /*write it dumbah*/
+        function backupStat() {
             for (let i = 0; i < currentCharStat.length; i++) {
                 //check if there are empty statistics
-                if (currentCharStat[i][1].length < 4){
+                if (currentCharStat[i][1].length < 4) {
                     console.log("Not all stats are filled")
                     break
-                }   
-            
+                }
 
-                
+
+
             }
-            
+
         }
-    
-    
+
+
     </script>
 </body>
 

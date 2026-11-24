@@ -45,12 +45,14 @@ body {
 
 .stat-btn{
     background-color:darkolivegreen;
+    /*color: rgb(149, 157, 164);*/
     padding: 1em 0.2em;
     width: 10em;
     font-family: "Frijole", system-ui;
     font-weight: 400;
     font-style: normal;
     font-size: large;
+    transition-duration: 2s;
 }
 .choosen{
     display: flex;
@@ -74,7 +76,7 @@ body {
 
 .roll-btn{
     margin: auto;
-    background-color:darkolivegreen;
+    background-color:rgb(85, 107, 47);
     padding: 2em 4em;
     font-family: "Frijole", system-ui;
     font-weight: 400;
@@ -101,4 +103,12 @@ body {
 .dist-roll-cont{
     width: 80%;
     margin: auto;
+}
+
+@keyframes filledStat {
+    0%{    background-color:rgb(85, 107, 47)}
+    25%{    background-color:rgb(111, 134, 71);}
+    50%{    background-color:rgb(145, 167, 109)}
+    75%{    background-color:rgb(196, 206, 178)}
+    100%{    background-color:rgb(255, 255, 255)}
 }
