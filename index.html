@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styletable.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="top-cont">
+        <div class="title-cont">
+            <section>
+                <h1>DND Dice roller</h1>
+            </section>
+        </div>
+        <div class="main-cont">
+
+            <div class="stat-cont">
+                <div class="stat-title">
+                    <h1>Choose a stat to roll</h1>
+                </div>
+                <div class="statistics">
+                    <div class="A-statistic" id="statStr"><button class="stat-btn" id="strBtn">Strenght</button></div>
+                    <div class="A-statistic" id="statChr"><button class="stat-btn" id="chrBtn">Charisma</button></div>
+                    <div class="A-statistic" id="statCon"><button class="stat-btn" id="conBtn">Constituiton</button>
+                    </div>
+                    <div class="A-statistic" id="statWis"><button class="stat-btn" id="wisBtn">Wisdom</button></div>
+                    <div class="A-statistic" id="statInt"><button class="stat-btn" id="intBtn">Intelligence</button>
+                    </div>
+                    <div class="A-statistic" id="statDex"><button class="stat-btn" id="dexBtn">Dexterity</button></div>
+                </div>
+                <div class="choosen">Choosen stat:<span id="choosenStat"> Strenght</div>
+            </div>
+            <div class="dist-roll-cont"> <!--ditributing stats and rolling-->
+                <div class="dist">
+                </div>
+                <div class="dice-cont">
+                    <div class="dice" id="die1">0</div>
+                    <div class="dice" id="die2">0</div>
+                    <div class="dice" id="die3">0</div>
+                    <div class="dice" id="die4">0</div>
+                </div>
+                <div class="roll-cont">
+                    <button class="roll-btn" id="rollButton">ROLLLLLLLLL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--style up that bih-->
+
+    <div class="team-characters">
+        <div class="visual-test">
+            <img src="vic.jpg" alt="">
+        </div>
+        <div class="statistic-tables">
+            <div class="stat-table-ind">
+                <div class="table-input">
+                    <div class="table-input-cont">
+                        <input type="text" class="table-input-input" value="character1" id="inp1">
+                    </div>
+                    <div id="assignToChar1" class="assignbutton">Assign stat to character</div>
+                </div>
+                <div class="stat-name-row">
+                    <div class="stat-ind" id="table-1-str">STR</div>
+                    <div class="stat-ind" id="table-1-chr">CHR</div>
+                    <div class="stat-ind" id="table-1-con">CON</div>
+                    <div class="stat-ind" id="table-1-wis">WIS</div>
+                    <div class="stat-ind" id="table-1-int">INT</div>
+                    <div class="stat-ind" id="table-1-dex">DEX</div>
+                </div>
+                <div class="stat-value-row">
+                    <div class="stat-value-ind"><span id="table-1-value1">0</span></div>
+                    <div class="stat-value-ind"><span id="table-1-value2">0</span></div>
+                    <div class="stat-value-ind"><span id="table-1-value3">0</span></div>
+                    <div class="stat-value-ind"><span id="table-1-value4">0</span></div>
+                    <div class="stat-value-ind"><span id="table-1-value5">0</span></div>
+                    <div class="stat-value-ind"><span id="table-1-value6">0</span></div>
+                </div>
+            </div>
+            <div class="stat-table-ind">
+                <div class="table-input">
+                    <div class="table-input-cont">
+                        <input type="text" class="table-input-input" value="character2" id="inp2">
+                    </div>
+                    <div id="assignToChar2" class="assignbutton">Assign stat to character</div>
+                </div>
+                <div class="stat-name-row">
+                    <div class="stat-ind" id="table-2-str">STR</div>
+                    <div class="stat-ind" id="table-2-chr">CHR</div>
+                    <div class="stat-ind" id="table-2-con">CON</div>
+                    <div class="stat-ind" id="table-2-wis">WIS</div>
+                    <div class="stat-ind" id="table-2-int">INT</div>
+                    <div class="stat-ind" id="table-2-dex">DEX</div>
+                </div>
+                <div class="stat-value-row">
+                    <div class="stat-value-ind"><span id="table-1-value1">0</span></div>
+                    <div class="stat-value-ind"><span id="table-2-value2">0</span></div>
+                    <div class="stat-value-ind"><span id="table-3-value3">0</span></div>
+                    <div class="stat-value-ind"><span id="table-4-value4">0</span></div>
+                    <div class="stat-value-ind"><span id="table-5-value5">0</span></div>
+                    <div class="stat-value-ind"><span id="table-6-value6">0</span></div>
+                </div>
+            </div>
+            <div class="stat-table-ind">
+                <div class="table-input">
+                    <div class="table-input-cont">
+                        <input type="text" class="table-input-input" value="character3" id="inp3">
+                    </div>
+                    <div id="assignToChar3" class="assignbutton">Assign stat to character</div>
+                </div>
+                <div class="stat-name-row">
+                    <div class="stat-ind" id="table-3-str">STR</div>
+                    <div class="stat-ind" id="table-3-chr">CHR</div>
+                    <div class="stat-ind" id="table-3-con">CON</div>
+                    <div class="stat-ind" id="table-3-wis">WIS</div>
+                    <div class="stat-ind" id="table-3-int">INT</div>
+                    <div class="stat-ind" id="table-3-dex">DEX</div>
+                </div>
+                <div class="stat-value-row">
+                    <div class="stat-value-ind"><span id="table-1-value1">0</span></div>
+                    <div class="stat-value-ind"><span id="table-2-value2">0</span></div>
+                    <div class="stat-value-ind"><span id="table-3-value3">0</span></div>
+                    <div class="stat-value-ind"><span id="table-4-value4">0</span></div>
+                    <div class="stat-value-ind"><span id="table-5-value5">0</span></div>
+                    <div class="stat-value-ind"><span id="table-6-value6">0</span></div>
+                </div>
+            </div>
+            <div class="stat-table-ind">
+                <div class="table-input">
+                    <div class="table-input-cont">
+                        <input type="text" class="table-input-input" value="character4" id="inp4">
+                    </div>
+                    <div id="assignToChar4" class="assignbutton">Assign stat to character</div>
+                </div>
+                <div class="stat-name-row">
+                    <div class="stat-ind" id="table-4-str">STR</div>
+                    <div class="stat-ind" id="table-4-chr">CHR</div>
+                    <div class="stat-ind" id="table-4-con">CON</div>
+                    <div class="stat-ind" id="table-4-wis">WIS</div>
+                    <div class="stat-ind" id="table-4-int">INT</div>
+                    <div class="stat-ind" id="table-4-dex">DEX</div>
+                </div>
+                <div class="stat-value-row">
+                    <div class="stat-value-ind"><span id="table-1-value1">0</span></div>
+                    <div class="stat-value-ind"><span id="table-2-value2">0</span></div>
+                    <div class="stat-value-ind"><span id="table-3-value3">0</span></div>
+                    <div class="stat-value-ind"><span id="table-4-value4">0</span></div>
+                    <div class="stat-value-ind"><span id="table-5-value5">0</span></div>
+                    <div class="stat-value-ind"><span id="table-6-value6">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+/*DISTRIBUTE THE SCORE INTO STATS*/
+
+    </div>
+    </div>
+
+    <script defer>
+        let activeStat = document.getElementById("choosenStat");      
+        let score = 0
+        const rollingStat = document.querySelectorAll(".stat-btn");
+        let dice = document.querySelectorAll(".dice")
+        let rolled = []
+        let rolledCopy = []
+        let legkisebb = 0
+        let indexkissebb = 0
+        const rollButton = document.querySelectorAll("#rollButton")
+
+
+        rollingStat.forEach(element => element.addEventListener("click", setActiveStat))
+        rollButton.forEach(elem => elem.addEventListener("click", rollDice))
+        function setActiveStat(event) {
+             activeStat.innerHTML = event.currentTarget.innerHTM
+             }
+
+        /*Rolling the 4 random numbers, pushing into array*/
+        function rollDice(event) {
+            rolled = []
+            for (let i = 0; i < 4; i++) {
+                temp = Math.floor(Math.random() * 6) + parseInt(1)
+                rolled.push(temp)
+                rolledCopy.push(temp)
+            }
+
+            /*visually rolling*/
+            for (let i = 0; i < rolled.length; i++) {
+                dice[i].innerHTML = rolled[i]
+                dice[i].style.backgroundColor = "rgba(126, 9, 9, 0.782"
+                dice[i].style.color = "black"
+
+
+            }
+            /*rendezni + legkissebb defniniálása*/
+            rolled.sort()
+            let kiszedett = rolled.splice(0, 1)
+
+
+            /*kiszedni a legkissebbet*/
+            for (let i = 0; i < rolledCopy.length; i++) {
+                //rolledCopy[i] === dice[i].innerHTML
+                if (dice[i].innerHTML == kiszedett) {
+                    dice[i].style.backgroundColor = "black"
+                    dice[i].style.color = "yellow"
+                    alert("Omitted one of your rolls: " + kiszedett)
+                    break
+                    console.log("Ha a html-be megegyezik a kiszedettel")
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

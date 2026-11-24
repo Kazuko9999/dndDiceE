@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Agrave+Pro:wght@100..700&display=swap');
+
+
+
+
+.team-characters {
+    margin-top: 80px !important;
+    margin-bottom: 80px !important;
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.statistic-tables {
+    background-color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+}
+
+.table-input {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Agrave Pro", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.assignbutton{
+    cursor: pointer;
+    border: 1px black solid;
+    border-radius: 10%;
+}
+.assignbutton:active{
+    background-color: rgba(143, 97, 4, 0.481);
+    user-select: none;
+}
+
+
+.table-input-input {
+    font-size: large;
+    margin: auto;
+    width: 50%;
+    font-family: "Agrave Pro", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+}
+
+.stat-table-ind {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.stat-name-row,
+.stat-value-row {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: large;
+}
