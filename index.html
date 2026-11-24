@@ -161,7 +161,7 @@
     </div>
 
     <script defer>
-        /*making variables*/
+        /*Declaration*/
         let activeStat = document.getElementById("choosenStat");
         let score = 0
         let rollingStat = document.querySelectorAll(".stat-btn");
@@ -178,54 +178,33 @@
         let currentWis = []
         let currentInt = []
         let currentDex = []
-
-        let currentCharStat = []
-
-        /* 177-216 rolling stuff DO NOT TOUCH*/
+        let currentCharStat =
+            [
+                ["Strength", []], //currentCharStat[0][0] == Strength ---- currentCharStat[0][1] == []
+                ["Charisma", []],
+                ["Constitution", []],
+                ["Wisdom", []],
+                ["Intelligence", []],
+                ["Dexterity", []],
+            ]
 
         rollingStat.forEach(element => element.addEventListener("click", setActiveStat))
         rollButton.forEach(elem => elem.addEventListener("click", rollDice))
         function setActiveStat(event) {
             activeStat.innerHTML = event.currentTarget.innerHTML
-            for (let i = 0; i < rolledCopy.length; i++) {
-                switch (activeStat.innerHTML) {
-                    case 'Strength':
-                        currentStr.push(rolledCopy[i])
-                        break;
-                    case 'Charisma':
-                        currentChr.push(rolledCopy[i])
-                        break;
-                    case 'Constituiton':
-                        currentCon.push(rolledCopy[i])
-                        break;
-                    case 'Wisdom':
-                        currentWis.push(rolledCopy[i])
-                        break;
-                    case 'Intelligence':
-                        currentInt.push(rolledCopy[i])
-                        break;
-                    case 'Dexterity':
-                        currentDex.push(rolledCopy[i])
-                        break;
-
-                    default:
-                        break;
-                }
-
-            }
-            currentCharStat.push(currentStr)
-
+            saveStat()
         }
         /*Rolling the 4 random numbers, pushing into array*/
         function rollDice(event) {
             rolled = []
+            rolledCopy = []
             for (let i = 0; i < 4; i++) {
                 temp = Math.floor(Math.random() * 6) + parseInt(1)
                 rolled.push(temp)
                 rolledCopy.push(temp)
             }
 
-            /*visually rolling*/
+            /*visually taking it out*/
             for (let i = 0; i < rolled.length; i++) {
                 dice[i].innerHTML = rolled[i]
                 dice[i].style.backgroundColor = "rgba(126, 9, 9, 0.782"
@@ -246,9 +225,35 @@
                     break
                 }
             }
+            saveStat()
         }
 
-
+        function saveStat() {
+            if (activeStat.innerHTML == "Strength") {
+                currentStr = rolledCopy
+                currentCharStat[0][1] = currentStr
+            }
+            else if (activeStat.innerHTML == "Charisma") {
+                currentChr = rolledCopy
+                currentCharStat[1][1] = currentChr
+            }
+            else if (activeStat.innerHTML == "Constituiton") {
+                currentCon = rolledCopy
+                currentCharStat[2][1] = currentCon
+            }
+            else if (activeStat.innerHTML == "Wisdom") {
+                currentWis = rolledCopy
+                currentCharStat[3][1] = currentWis
+            }
+            else if (activeStat.innerHTML == "Intelligence") {
+                currentInt = rolledCopy
+                currentCharStat[4][1] = currentInt
+            }
+            else if (activeStat.innerHTML == "Dexterity") {
+                currentDex = rolledCopy
+                currentCharStat[5][1] = currentDex
+            }
+        }
 
     </script>
 </body>
