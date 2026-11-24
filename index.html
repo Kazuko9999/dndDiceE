@@ -23,7 +23,7 @@
                     <h1>Choose a stat to roll</h1>
                 </div>
                 <div class="statistics">
-                    <div class="A-statistic" id="statStr"><button class="stat-btn" id="strBtn">Strenght</button></div>
+                    <div class="A-statistic" id="statStr"><button class="stat-btn" id="strBtn">Strength</button></div>
                     <div class="A-statistic" id="statChr"><button class="stat-btn" id="chrBtn">Charisma</button></div>
                     <div class="A-statistic" id="statCon"><button class="stat-btn" id="conBtn">Constituiton</button>
                     </div>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="A-statistic" id="statDex"><button class="stat-btn" id="dexBtn">Dexterity</button></div>
                 </div>
-                <div class="choosen">Choosen stat:<span id="choosenStat"> Strenght</div>
+                <div class="choosen">Choosen stat:<span id="choosenStat">Roll first</div>
             </div>
             <div class="dist-roll-cont"> <!--ditributing stats and rolling-->
                 <div class="dist">
@@ -154,17 +154,17 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-/*DISTRIBUTE THE SCORE INTO STATS*/
+
+    /*DISTRIBUTE THE SCORE INTO STATS*/
 
     </div>
     </div>
 
     <script defer>
-        let activeStat = document.getElementById("choosenStat");      
+        /*making variables*/
+        let activeStat = document.getElementById("choosenStat");
         let score = 0
-        const rollingStat = document.querySelectorAll(".stat-btn");
+        let rollingStat = document.querySelectorAll(".stat-btn");
         let dice = document.querySelectorAll(".dice")
         let rolled = []
         let rolledCopy = []
@@ -172,13 +172,50 @@
         let indexkissebb = 0
         const rollButton = document.querySelectorAll("#rollButton")
 
+        let currentStr = []
+        let currentChr = []
+        let currentCon = []
+        let currentWis = []
+        let currentInt = []
+        let currentDex = []
+
+        let currentCharStat = []
+
+        /* 177-216 rolling stuff DO NOT TOUCH*/
 
         rollingStat.forEach(element => element.addEventListener("click", setActiveStat))
         rollButton.forEach(elem => elem.addEventListener("click", rollDice))
         function setActiveStat(event) {
-             activeStat.innerHTML = event.currentTarget.innerHTM
-             }
+            activeStat.innerHTML = event.currentTarget.innerHTML
+            for (let i = 0; i < rolledCopy.length; i++) {
+                switch (activeStat.innerHTML) {
+                    case 'Strength':
+                        currentStr.push(rolledCopy[i])
+                        break;
+                    case 'Charisma':
+                        currentChr.push(rolledCopy[i])
+                        break;
+                    case 'Constituiton':
+                        currentCon.push(rolledCopy[i])
+                        break;
+                    case 'Wisdom':
+                        currentWis.push(rolledCopy[i])
+                        break;
+                    case 'Intelligence':
+                        currentInt.push(rolledCopy[i])
+                        break;
+                    case 'Dexterity':
+                        currentDex.push(rolledCopy[i])
+                        break;
 
+                    default:
+                        break;
+                }
+
+            }
+            currentCharStat.push(currentStr)
+
+        }
         /*Rolling the 4 random numbers, pushing into array*/
         function rollDice(event) {
             rolled = []
@@ -200,16 +237,13 @@
             rolled.sort()
             let kiszedett = rolled.splice(0, 1)
 
-
             /*kiszedni a legkissebbet*/
             for (let i = 0; i < rolledCopy.length; i++) {
                 //rolledCopy[i] === dice[i].innerHTML
                 if (dice[i].innerHTML == kiszedett) {
                     dice[i].style.backgroundColor = "black"
                     dice[i].style.color = "yellow"
-                    alert("Omitted one of your rolls: " + kiszedett)
                     break
-                    console.log("Ha a html-be megegyezik a kiszedettel")
                 }
             }
         }
