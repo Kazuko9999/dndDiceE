@@ -178,14 +178,21 @@
         let currentWis = []
         let currentInt = []
         let currentDex = []
+        
+        let actualStr = []
+        let actualChr = []
+        let actualCon = []
+        let actualWis = []
+        let actualInt = []
+        let actualDex = []
         let currentCharStat =
             [
-                ["Strength", []], //currentCharStat[0][0] == Strength ---- currentCharStat[0][1] == []
-                ["Charisma", []],
-                ["Constitution", []],
-                ["Wisdom", []],
-                ["Intelligence", []],
-                ["Dexterity", []],
+                ["Strength", [],[]], //currentCharStat[0][0] == Strength ---- currentCharStat[0][1] == []
+                ["Charisma", [],[]],
+                ["Constitution",[],[]],
+                ["Wisdom", [],[]],
+                ["Intelligence", [],[]],
+                ["Dexterity", [],[]],
             ]
 
         rollingStat.forEach(element => element.addEventListener("click", setActiveStat))
@@ -228,33 +235,62 @@
             saveStat()
         }
 
+
+        // saves your stat DUH
         function saveStat() {
             if (activeStat.innerHTML == "Strength") {
                 currentStr = rolledCopy
+                actualStr = rolled
                 currentCharStat[0][1] = currentStr
+                currentCharStat[0][2] = actualStr
             }
             else if (activeStat.innerHTML == "Charisma") {
                 currentChr = rolledCopy
+                actualChr = rolled
                 currentCharStat[1][1] = currentChr
+                currentCharStat[1][2] = actualChr
             }
             else if (activeStat.innerHTML == "Constituiton") {
                 currentCon = rolledCopy
+                actualCon = rolled
                 currentCharStat[2][1] = currentCon
+                currentCharStat[2][2] = actualCon
             }
             else if (activeStat.innerHTML == "Wisdom") {
                 currentWis = rolledCopy
+                actualWis = rolled
                 currentCharStat[3][1] = currentWis
+                currentCharStat[3][2] = actualWis
             }
             else if (activeStat.innerHTML == "Intelligence") {
                 currentInt = rolledCopy
+                actualInt = rolled
                 currentCharStat[4][1] = currentInt
+                currentCharStat[4][2] = actualInt
             }
             else if (activeStat.innerHTML == "Dexterity") {
                 currentDex = rolledCopy
+                currentStr = rolledCopy
                 currentCharStat[5][1] = currentDex
+                currentCharStat[5][2] = actualDex
             }
         }
 
+        function backupStat(){
+            for (let i = 0; i < currentCharStat.length; i++) {
+                //check if there are empty statistics
+                if (currentCharStat[i][1].length < 4){
+                    console.log("Not all stats are filled")
+                    break
+                }   
+            
+
+                
+            }
+            
+        }
+    
+    
     </script>
 </body>
 
